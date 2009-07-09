@@ -23,6 +23,7 @@ module Frankie
         ENV['FACEBOOK_API_KEY'] = yaml['api_key']
         ENV['FACEBOOK_SECRET_KEY'] = yaml['secret_key']
         ENV['FACEBOOKER_RELATIVE_URL_ROOT'] = yaml['canvas_page_name']
+        ENV['FACEBOOKER_CALLBACK_URL'] = yaml['callback_url']
       end
     end
        
