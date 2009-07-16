@@ -32,7 +32,7 @@ module Frankie
   module EventContext
 
     # pin it to newer version of Facebooker
-    gem 'mmangino-facebooker', '>=1.0.2'
+    gem 'mmangino-facebooker', '>=1.0.42'
     require 'facebooker'    
     
     def facebook_session
