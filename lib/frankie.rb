@@ -194,5 +194,5 @@ module Frankie
 end
   
 # extend sinatra with frankie methods, changed to work with Sinatra 0.9.x
-Sinatra::Default.send(:include, Frankie::EventContext)
+Sinatra::Base.send(:include, Frankie::EventContext)
 include Frankie::Loader
