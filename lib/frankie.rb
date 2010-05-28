@@ -141,10 +141,12 @@ module Frankie
     end
     
     def do_redirect(*args)
+      url = args.first
+      url << "&next=#{CGI.escape(CGI.unescape(link_to_app(request.path)))}" unless url =~ /next=/
       if request_is_for_a_facebook_canvas?
-        fbml_redirect_tag(args[0])
+        fbml_redirect_tag(url)
       else
-        redirect args[0]
+        redirect url
       end
     end
     
