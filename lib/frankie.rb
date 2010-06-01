@@ -142,12 +142,16 @@ module Frankie
     
     def do_redirect(*args)
       url = args.first
-      url << "&next=#{CGI.escape(CGI.unescape(link_to_app(request.path)))}" unless url =~ /next=/
+      url << "&next=#{CGI.escape default_next_url}" unless url =~ /next=/
       if request_is_for_a_facebook_canvas?
         fbml_redirect_tag(url)
       else
         redirect url
       end
+    end
+
+    def default_next_url
+      "http://apps.facebook.com/#{ENV['FACEBOOKER_RELATIVE_URL_ROOT']}/#{request.path.sub(/^\//, '')}"
     end
     
     def fbml_redirect_tag(url)
